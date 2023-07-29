@@ -1,0 +1,11 @@
+Pseudo_code output: 
+
+48 matching index files 
+	-24 for read 1
+	-24 for read 2
+2 files for non-matching index pairs:
+	-1 file for read 1
+	-1 file for read 2
+2 files for unkown or low quality indexes:
+	-1 file for read 1
+	-1 file for read 2

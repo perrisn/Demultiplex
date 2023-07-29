@@ -1,0 +1,57 @@
+def rev_complement(file:R3)->str:
+'''Takes in a file with a sequence line and returns the reverse compliment of the sequence line.'''
+	open R3 file
+	get seq line
+	reverse line
+	dictionary to get reverse complement
+	return reverse complement
+Input: CTGAT
+Output: GACTA
+
+def append_index_to_header(files R1, R2, R3, R4) -> str:
+''' Goes through each header in the line and gives us the new headers with the index files appended.'''
+	open all files for reading
+	while True:
+		get header
+		get seq
+		make new header for R1 with header appended
+		make new header for R2 with header appended 
+	return new_header_R1, new_header_R4
+input: file1
+output: @K00337:83:HJKJNBBXX:8:1101:1265:1191 1:N:0:1 CTTCGAC-CTTCGAC
+
+def index_dictionary(file) -> dictionary:
+'''Makes dictionary of all the indexes'''
+	open the index file for reading 
+	get the fifth column 
+	add index to dictionary 
+	return dictionary
+input: index file
+output:  {"B1":"GTAGCGTA",..."A8","AGGATAGC"}
+
+	
+
+open files (R1, R2, R3, R4) to read, open files (…) to write:
+	while True:
+		if EOF—if empty string
+			break
+		get header of all files
+		get sequence (for R3, would call function rev_complement())
+		get +
+		get quality score
+		# checking for the nucleotide unknown
+		if sequence in R2 or R3 has ’N’ or low quality_score:
+			write record to unknown file for R1 with edited header #(using append_index_to_header()) for each edited header
+			write record to unknown file for R4 with edited header
+			
+		elif seq not in index_dictionary:
+			write record to unknown file for R1 with edited header 
+			write record to unknown file for R2 with edited header 
+			if seq R2==R3:
+				write record to matched file with index label for R1
+				write record to matched file with index label for R2
+		else:
+			write record to unmatched file for R1 with edited header 
+			write record to unkown file for R2 with edited header 
+
+	Create variables for matched, unmatched, and unknown. Each time a record is added increment the counter in order to get the number of read pairs for each file type. 
