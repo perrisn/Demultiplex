@@ -6,7 +6,7 @@ def rev_complement(file:R3)->str:
 	dictionary to get reverse complement
 	return reverse complement
 Input: CTGAT
-Output: GACTA
+Output: ATCAG
 
 def append_index_to_header(files R1, R2, R3, R4) -> str:
 ''' Goes through each header in the line and gives us the new headers with the index files appended.'''
