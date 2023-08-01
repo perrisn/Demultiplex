@@ -1,0 +1,35 @@
+Initial data exploration: 
+
+#To explore the headers of the files and see what informationt they contain: 
+zcat 1294_S1_L008_R1_001.fastq.gz | head -2
+zcat 1294_S1_L008_R2_001.fastq.gz | head -2
+zcat 1294_S1_L008_R3_001.fastq.gz | head -2
+zcat 1294_S1_L008_R4_001.fastq.gz | head -2
+
+#To determine the length  of the reads in each file: 
+zcat 1294_S1_L008_R1_001.fastq.gz | head -n 2 | grep -v "^@" | tr -d "\n" | wc
+101
+zcat 1294_S1_L008_R2_001.fastq.gz | head -n 2 | grep -v "^@" | tr -d "\n" | wc
+8
+zcat 1294_S1_L008_R3_001.fastq.gz | head -n 2 | grep -v "^@" | tr -d "\n" | wc
+8
+zcat 1294_S1_L008_R4_001.fastq.gz | head -n 2 | grep -v "^@" | tr -d "\n" | wc
+101
+
+#To determine the phred encoding for these data:
+zcat 1294_S1_L008_R1_001.fastq.gz | grep -B 1 "^@" | grep -v "^@" | grep -v "^--" | grep "#" | head 
+
+This was Phred+33 as I could see there was lots of # which corresponds to a value of 35. It would not be possible to have Phred+64 and subtracting 35-64 will be a negative number. 
+
+Quality score - potentially where the histogram has an exponential increase, wait for graphs to determine this. 
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+July 31, 2023: finishing python script and working on submitting files 
+''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+When creating unit test files, make sure that the end of line character is LF not CRLF. LF refers to the new line character while CRLF refers to the carriage return character. 
+
+To determine the number of indexes with N:
+zcat 1294_S1_L008_R2_001.fastq.gz | sed -n '2~4p' | grep "N" | wc -l
+zcat 1294_S1_L008_R3_001.fastq.gz | sed -n '2~4p' | grep "N" | wc -l
