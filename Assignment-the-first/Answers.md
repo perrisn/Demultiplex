@@ -23,10 +23,10 @@ zcat 1294_S1_L008_R1_001.fastq.gz | grep -B 1 "^@" | grep -v "^@" | grep -v "^--
 
 2. Per-base NT distribution
     1. Use markdown to insert your 4 histograms here.
-    ![Read 1 Histogram](read1_file.png)
-    ![Index 1 Histogram](index1_file.png)
-    ![Index 2 Histogram](index2_file.png)
-    ![Read 2 Histogram](read2_file.png)
+    ![Read1](histograms/read1_file.png)
+    ![Index 1 Histogram](histograms/index1_file.png)
+    ![Index 2 Histogram](histograms/index2_file.png)
+    ![Read 2 Histogram](histograms/read2_file.png)
     2. A good quality score cut off for index reads would be 35. This was determined based off of the mean quality score distribution. The lowest score based on the distribution seemed to be around 30. However, because indexes have such short sequences they can be nmore influenced by outliers. Therefore I would set the cutoff to be a little higher than the lowest value we observed. A good quality score cutoff for the read files would be 30. This was determined based off of the mean quality score distribution. In this case, the sequences are not as influcenced by outliers as the index reads. Perhaps a high enough coverage could overcome a large error rate as well. 
     3. I determined there was 3976613 indexes in Index 1 that had undetermined base calls. I determined there was 3328051 indexes in Index 2 that had undetermined base calls.
 
